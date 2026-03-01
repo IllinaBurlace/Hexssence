@@ -1,0 +1,15 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+# https://copier.readthedocs.io/en/stable/updating/#never-change-the-answers-file-manually
+_commit: v2.2.4
+_src_path: gh:FallingColors/hexdummy
+advanced: false
+description: Resource generation addon for Hex Casting
+display_name: Hexssence
+github_repo: Hexssence
+github_user: IllinaBurlace
+java_package: meow.illina.hexssence
+mappings_name: Mojmap
+minecraft_version_in_mod_version: true
+mit_license: false
+mod_version: 0.1.0
+modid: hexssence

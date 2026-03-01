@@ -1,0 +1,8 @@
+{
+  hexdoc: {
+    hexssence: {
+      title: "Hexssence Book",
+      description: "Resource generation addon for Hex Casting",
+    },
+  }
+}

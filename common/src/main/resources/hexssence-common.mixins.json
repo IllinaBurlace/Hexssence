@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "meow.illina.hexssence.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "MixinDatagenMain"
+  ],
+  "plugin": "meow.illina.hexssence.mixin.HexssenceMixinConfigPlugin",
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
