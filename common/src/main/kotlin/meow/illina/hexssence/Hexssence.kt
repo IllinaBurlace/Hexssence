@@ -6,6 +6,8 @@ import org.apache.logging.log4j.Logger
 import meow.illina.hexssence.config.HexssenceServerConfig
 import meow.illina.hexssence.networking.HexssenceNetworking
 import meow.illina.hexssence.registry.HexssenceActions
+import meow.illina.hexssence.registry.HexssenceCreativeTabs
+import meow.illina.hexssence.registry.HexssenceItems
 
 object Hexssence {
     const val MODID = "hexssence"
@@ -20,6 +22,8 @@ object Hexssence {
         HexssenceServerConfig.init()
         initRegistries(
             HexssenceActions,
+            HexssenceCreativeTabs,
+            HexssenceItems,
         )
         HexssenceNetworking.init()
     }
