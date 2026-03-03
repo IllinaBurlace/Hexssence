@@ -6,6 +6,8 @@ import org.apache.logging.log4j.Logger
 import meow.illina.hexssence.config.HexssenceServerConfig
 import meow.illina.hexssence.networking.HexssenceNetworking
 import meow.illina.hexssence.registry.HexssenceActions
+import meow.illina.hexssence.registry.HexssenceBlockEntities
+import meow.illina.hexssence.registry.HexssenceBlocks
 import meow.illina.hexssence.registry.HexssenceCreativeTabs
 import meow.illina.hexssence.registry.HexssenceItems
 
@@ -24,6 +26,8 @@ object Hexssence {
             HexssenceActions,
             HexssenceCreativeTabs,
             HexssenceItems,
+            HexssenceBlocks,
+            HexssenceBlockEntities,
         )
         HexssenceNetworking.init()
     }

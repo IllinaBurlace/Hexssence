@@ -48,7 +48,6 @@ object HexssenceItems : HexssenceRegistrar<Item>(
         Item(props)
     }
 
-
     private fun <V : Item> item(name: String, builder: () -> V) = ItemEntry(register(name, builder))
 
     class ItemEntry<V : Item>(entry: Entry<V>) : Entry<V>(entry), ItemLike {
