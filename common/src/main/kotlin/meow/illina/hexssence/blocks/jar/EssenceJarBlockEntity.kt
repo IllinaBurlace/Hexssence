@@ -1,6 +1,8 @@
 package meow.illina.hexssence.blocks.jar
 
 import at.petrak.hexcasting.api.block.HexBlockEntity
+import meow.illina.hexssence.api.HexssenceTags
+import meow.illina.hexssence.datagen.tags.HexssenceItemTags
 import meow.illina.hexssence.registry.HexssenceBlockEntities
 import net.minecraft.core.BlockPos
 import net.minecraft.core.registries.BuiltInRegistries
@@ -29,7 +31,9 @@ class EssenceJarBlockEntity(pos: BlockPos, state: BlockState) :
         val stack = player.getItemInHand(hand)
         if ((storedItem != Items.AIR && !stack.`is`(storedItem))
             || stack == ItemStack.EMPTY
+            || !stack.`is`(HexssenceTags.Items.VALID_ESSENCE)
         ) return InteractionResult.FAIL
+
 
         storedItem = stack.item
         count += stack.copyAndClear().count

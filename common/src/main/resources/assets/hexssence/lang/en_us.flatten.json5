@@ -11,6 +11,10 @@
     essence_end: "End Essence"
   },
 
+  "block.hexssence": {
+    essence_jar: "Essence Jar"
+  },
+
   "itemGroup.hexssence": "Hexssence",
 
   hexssence: {
