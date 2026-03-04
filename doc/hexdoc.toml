@@ -25,7 +25,7 @@ include = [
 
 [template.args]
 mod_name = "Hexssence"
-author = "IllinaBurlace"
+author = "Illina"
 show_landing_text = false
 
 [extra.hexcasting]

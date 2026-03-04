@@ -23,11 +23,11 @@ object Hexssence {
     fun init() {
         HexssenceServerConfig.init()
         initRegistries(
-            HexssenceActions,
-            HexssenceCreativeTabs,
-            HexssenceItems,
             HexssenceBlocks,
             HexssenceBlockEntities,
+            HexssenceItems,
+            HexssenceActions,
+            HexssenceCreativeTabs,
         )
         HexssenceNetworking.init()
     }

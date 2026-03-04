@@ -7,6 +7,7 @@ import meow.illina.hexssence.registry.HexssenceRegistrar
 
 fun initRegistries(vararg registries: HexssenceRegistrar<*>) {
     for (registry in registries) {
+        Hexssence.LOGGER.info("register running on $registry")
         initRegistry(registry)
     }
 }
