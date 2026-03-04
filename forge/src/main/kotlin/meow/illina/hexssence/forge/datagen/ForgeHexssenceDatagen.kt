@@ -1,7 +1,8 @@
 package meow.illina.hexssence.forge.datagen
 
 import at.petrak.hexcasting.forge.datagen.TagsProviderEFHSetter
-import meow.illina.hexssence.datagen.HexssenceActionTags
+import meow.illina.hexssence.datagen.tags.HexssenceActionTags
+import meow.illina.hexssence.datagen.tags.HexssenceItemTags
 import net.minecraft.data.DataProvider
 import net.minecraft.data.PackOutput
 import net.minecraftforge.data.event.GatherDataEvent
@@ -11,7 +12,7 @@ object ForgeHexssenceDatagen {
         event.apply {
             // common datagen
             if (System.getProperty("hexssence.common-datagen") == "true") {
-                // TODO: add datagen providers
+                addProvider(includeServer()) { HexssenceItemTags(it, lookupProvider) }
             }
 
             // Forge-only datagen

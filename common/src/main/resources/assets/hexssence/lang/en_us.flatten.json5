@@ -1,4 +1,22 @@
 {
+  "item.hexssence": {
+    essence_hex: "Hex Essence",
+    essence_earth: "Earth Essence",
+    essence_air: "Air Essence",
+    essence_water: "Water Essence",
+    essence_fire: "Fire Essence",
+    essence_metal: "Metal Essence",
+    essence_precious: "Precious Essence",
+    essence_life: "Life Essence",
+    essence_end: "End Essence"
+  },
+
+  "block.hexssence": {
+    essence_jar: "Essence Jar"
+  },
+
+  "itemGroup.hexssence": "Hexssence",
+
   hexssence: {
     book: {
       patterns: {
@@ -16,6 +34,9 @@
         },
       },
     },
+    tooltip: {
+      essence_jar: "Stored: %s x%d"
+    }
   },
 
   hexcasting: {

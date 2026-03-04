@@ -1,6 +1,6 @@
 package meow.illina.hexssence.fabric.datagen
 
-import meow.illina.hexssence.datagen.HexssenceActionTags
+import meow.illina.hexssence.datagen.tags.HexssenceActionTags
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator
 
