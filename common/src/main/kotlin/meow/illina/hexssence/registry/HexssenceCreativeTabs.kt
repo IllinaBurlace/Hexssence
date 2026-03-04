@@ -13,7 +13,7 @@ object HexssenceCreativeTabs : HexssenceRegistrar<CreativeModeTab>(
 ) {
     val HEXSSENCE = make("hexssence") {
         icon { ItemStack(HexssenceItems.ESSENCE_HEX) }
-        displayItems { _, output ->
+        displayItems { _, _ ->
 
         }
     }

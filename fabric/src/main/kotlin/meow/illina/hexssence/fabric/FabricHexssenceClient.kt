@@ -4,6 +4,7 @@ import meow.illina.hexssence.HexssenceClient
 import meow.illina.hexssence.registry.HexssenceBlocks
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap
+import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry
 import net.minecraft.client.renderer.RenderType
 
 object FabricHexssenceClient : ClientModInitializer {
@@ -12,5 +13,6 @@ object FabricHexssenceClient : ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutout(),
             HexssenceBlocks.ESSENCE_JAR.value
         )
+
     }
 }
