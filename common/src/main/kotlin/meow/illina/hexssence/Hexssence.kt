@@ -10,6 +10,8 @@ import meow.illina.hexssence.registry.HexssenceBlockEntities
 import meow.illina.hexssence.registry.HexssenceBlocks
 import meow.illina.hexssence.registry.HexssenceCreativeTabs
 import meow.illina.hexssence.registry.HexssenceItems
+import meow.illina.hexssence.registry.HexssenceRecipeSerializers
+import meow.illina.hexssence.registry.HexssenceRecipeTypes
 
 object Hexssence {
     const val MODID = "hexssence"
@@ -28,6 +30,8 @@ object Hexssence {
             HexssenceItems,
             HexssenceActions,
             HexssenceCreativeTabs,
+            HexssenceRecipeTypes,
+            HexssenceRecipeSerializers,
         )
         HexssenceNetworking.init()
     }
