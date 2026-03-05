@@ -18,6 +18,11 @@
   "itemGroup.hexssence": "Hexssence",
 
   hexssence: {
+    mishaps: {
+      extraction: {
+        valid_target: "valid Extraction target"
+      }
+    },
     book: {
       patterns: {
         spells: {
@@ -44,6 +49,7 @@
       "hexssence:": {
         congratulate: "Congratulate Player",
         "congratulate/great": "Great Congrats!",
+        "extract_essence": "Extract Essence",
       },
 
       // use this to add shortened versions of pattern names if the full name won't fit in the ingame book
