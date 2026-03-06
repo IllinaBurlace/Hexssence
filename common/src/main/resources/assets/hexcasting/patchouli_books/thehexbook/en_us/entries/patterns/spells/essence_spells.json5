@@ -1,0 +1,20 @@
+{
+  name: "hexssence.book.patterns.spells.essence_spells.title",
+  category: "hexcasting:patterns/spells",
+  icon: "hexssence:essence_hex",
+  advancement: "hexcasting:root",
+  pages: [
+    {
+      type: "patchouli:text",
+      text: "hexssence.book.patterns.spells.essence_spells.desc"
+    },
+    {
+      type: "hexcasting:pattern",
+      op_id: "hexssence:extract_essence",
+      anchor: "hexssence:extract_essence",
+      input: "entity",
+      output: "",
+      text: "hexssence.book.patterns.spells.essence_spells.extract_essence",
+    },
+  ],
+}

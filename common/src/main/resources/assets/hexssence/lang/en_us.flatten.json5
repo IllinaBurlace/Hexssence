@@ -26,18 +26,23 @@
     book: {
       patterns: {
         spells: {
-          dummy_spells: {
-            "": "Dummy Spells",
-            congratulate: "Remove an entity from the stack, then congratulate them.",
-          },
-        },
-        great_spells: {
-          dummy_great_spells: {
-            "": "Dummy Great Spells",
-            "congratulate/great": "Same as $(l:patterns/spells/dummy_spells#hexssence:congratulate)$(action)Congratulate/$, but as a great spell.",
-          },
+          essence_spells: {
+            title: "Essence Spells",
+            desc: "I have discovered a number of patterns relating to $(l:items/essence)$(item)Essence/$, the fundamental components of items.",
+            extract_essence: "Extracts the essence from a dropped item."
+          }
         },
       },
+    },
+    page: {
+      essence: {
+        "1": "Strange, some of these scrolls imply that basic $(item)items/$ such as cobblestone are $(italic)not/$ discrete forms, but are instead amalgamations of even baser $(item)Essences/$.",
+        "2": "I wonder if I can $(l:patterns/spells/essence_spells)exploit this.../$",
+        "jar": "I've devised a way to store a large quantity of any one Essence.$(br)To store an Essence in a jar, I can simply interact while holding a matching essence.$(br)Interacting again within a short timeframe deposits every matching essence in my inventory.$(br)Punching the jar with an empty hand or essence extracts one of the contained essences into my hand, and crouching as I do so extracts a full stack."
+      }
+    },
+    entry: {
+      items: "Essences"
     },
     tooltip: {
       essence_jar: "Stored: %s x%d"
@@ -47,8 +52,6 @@
   hexcasting: {
     action: {
       "hexssence:": {
-        congratulate: "Congratulate Player",
-        "congratulate/great": "Great Congrats!",
         "extract_essence": "Extract Essence",
       },
 
@@ -56,7 +59,6 @@
       // you don't need to add an entry for every pattern - the above value will be used as a default
       book: {
         "hexssence:": {
-          congratulate: "Congratulate",
         },
       },
     },
@@ -64,7 +66,6 @@
 
   text: {
     hexssence: {
-      congrats: "Tell %1$s they're doing a good job!",
     },
 
     "autoconfig.hexssence": {
@@ -77,17 +78,9 @@
 
       option: {
         client: {
-          dummyClientConfigOption: {
-            "": "Dummy Client Config Option",
-            "@Tooltip": "This is an example of a client-side config option that accepts a boolean.",
           },
-        },
 
         server: {
-          dummyServerConfigOption: {
-            "": "Dummy Server Config Option",
-            "@Tooltip": "This is an example of a server-side config option that accepts an integer.",
-          },
         },
       },
     },

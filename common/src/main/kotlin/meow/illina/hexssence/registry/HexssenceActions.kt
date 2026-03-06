@@ -13,10 +13,6 @@ object HexssenceActions : HexssenceRegistrar<ActionRegistryEntry>(
     HexRegistries.ACTION,
     { HexActions.REGISTRY },
 ) {
-    val CONGRATULATE = make("congratulate", HexDir.WEST, "eed", OpCongratulate)
-
-    val GREAT_CONGRATULATE = make("congratulate/great", HexDir.EAST, "qwwqqqwwqwded", OpCongratulate)
-
     val EXTRACT = make("extract_essence", HexDir.EAST, "qaqqaeawaeaeawqwa", Extract)
 
     private fun make(name: String, startDir: HexDir, signature: String, action: Action) =
