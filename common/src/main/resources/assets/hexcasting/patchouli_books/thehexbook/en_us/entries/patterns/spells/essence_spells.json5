@@ -23,6 +23,21 @@
       input: "[entity], vec",
       output: "",
       text: "hexssence.book.patterns.spells.essence_spells.combine_entities"
+    },
+    {
+      type: "patchouli:empty"
+    },
+    {
+      type: "hexcasting:pattern",
+      op_id: "hexssence:combine_jars",
+      anchor: "hexssence:combine_jars",
+      input: "[vec], [num], vec",
+      output: "",
+      text: "hexssence.book.patterns.spells.essence_spells.combine_jars.1"
+    },
+    {
+      type: "patchouli:text",
+      text: "hexssence.book.patterns.spells.essence_spells.combine_jars.2"
     }
   ],
 }

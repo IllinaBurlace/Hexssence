@@ -24,13 +24,16 @@ object CombineEntities : SpellAction {
         val targets = args.getList(0, argc)
         val outPos = args.getVec3(1, argc)
 
-        val coll = NonNullList.create<ItemEntity>()
+        env.assertVecInRange(outPos)
+
         targets.forEach { target ->
             if (target !is EntityIota || target.entity !is ItemEntity)
                 throw MishapInvalidIota(args[0], 1, Component.translatable("hexssence.mishaps.combine_entities.valid_list"))
-            val ent = target.entity as ItemEntity
-            coll.add(ent)
+            env.assertEntityInRange(target.entity)
         }
+
+        val coll = NonNullList.create<ItemEntity>()
+        coll.addAll(targets.map { (it as EntityIota).entity as ItemEntity })
 
         val recipe = env.world.recipeManager
             .getRecipeFor(
