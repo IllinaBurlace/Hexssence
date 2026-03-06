@@ -16,5 +16,13 @@
       output: "",
       text: "hexssence.book.patterns.spells.essence_spells.extract_essence",
     },
+    {
+      type: "hexcasting:pattern",
+      op_id: "hexssence:combine_entities",
+      anchor: "hexssence:combine_entities",
+      input: "[entity], vec",
+      output: "",
+      text: "hexssence.book.patterns.spells.essence_spells.combine_entities"
+    }
   ],
 }

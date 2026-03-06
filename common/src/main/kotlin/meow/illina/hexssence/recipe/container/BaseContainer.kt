@@ -1,4 +1,4 @@
-package meow.illina.hexssence.blocks.container
+package meow.illina.hexssence.recipe.container
 
 import net.minecraft.core.NonNullList
 import net.minecraft.world.Container
@@ -29,6 +29,11 @@ class BaseContainer : Container {
         fun of(vararg items: ItemStack): BaseContainer {
             val container = BaseContainer()
             container.stacks.addAll(items)
+            return container
+        }
+        fun of(stacks: List<ItemStack>): BaseContainer {
+            val container = BaseContainer()
+            container.stacks.addAll(stacks)
             return container
         }
     }

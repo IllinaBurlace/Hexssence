@@ -1,6 +1,6 @@
 package meow.illina.hexssence.recipe
 
-import meow.illina.hexssence.blocks.container.BaseContainer
+import meow.illina.hexssence.recipe.container.BaseContainer
 import meow.illina.hexssence.recipe.utils.ChancedResult
 import net.minecraft.core.RegistryAccess
 import net.minecraft.resources.ResourceLocation

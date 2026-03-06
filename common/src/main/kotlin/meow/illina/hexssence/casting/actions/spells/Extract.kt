@@ -7,7 +7,7 @@ import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
 import at.petrak.hexcasting.api.casting.getItemEntity
 import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.mishaps.MishapBadEntity
-import meow.illina.hexssence.blocks.container.BaseContainer
+import meow.illina.hexssence.recipe.container.BaseContainer
 import meow.illina.hexssence.recipe.extraction.ExtractionRecipe
 import net.minecraft.network.chat.Component
 import net.minecraft.world.Containers

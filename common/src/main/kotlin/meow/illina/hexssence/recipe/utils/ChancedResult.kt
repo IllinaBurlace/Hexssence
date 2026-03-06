@@ -45,7 +45,7 @@ class ChancedResult(val item: ItemStack, val chance: Float) {
         fun fromJson(je: JsonElement): ChancedResult {
             val json = je.asJsonObject
             val id = GsonHelper.getAsString(json, "item")
-            val count = GsonHelper.getAsInt(json, "count")
+            val count = GsonHelper.getAsInt(json, "count", 1)
             val chance = GsonHelper.getAsFloat(json, "chance", 1.0f)
             val stack = ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation(id)), count)
 

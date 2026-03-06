@@ -21,6 +21,9 @@
     mishaps: {
       extraction: {
         valid_target: "valid Extraction target"
+      },
+      combine_entities: {
+        valid_list: "list of valid Combination targets"
       }
     },
     book: {
@@ -29,7 +32,8 @@
           essence_spells: {
             title: "Essence Spells",
             desc: "I have discovered a number of patterns relating to $(l:items/essence)$(item)Essence/$, the fundamental components of items.",
-            extract_essence: "Extracts the essence from a dropped item."
+            extract_essence: "Extracts the essence from a dropped item.",
+            combine_entities: "Takes a list of dropped essence items, and attempts to combine them, pushing the output to the target vector.$(br)Mishaps if essences cannot combine to an item."
           }
         },
       },
@@ -52,7 +56,8 @@
   hexcasting: {
     action: {
       "hexssence:": {
-        "extract_essence": "Extract Essence",
+        "extract_essence": "Extraction",
+        "combine_entities": "Combination (entities)"
       },
 
       // use this to add shortened versions of pattern names if the full name won't fit in the ingame book
