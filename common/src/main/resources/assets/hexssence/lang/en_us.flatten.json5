@@ -22,9 +22,6 @@
       extraction: {
         valid_target: "valid Extraction target"
       },
-      combine_entities: {
-        valid_list: "list of valid Combination targets"
-      },
       combine_vecs: {
         valid_list: "list of vectors pointing to Essence jars",
         valid_recipe: "valid combination recipe (is it in the right order?)"
@@ -37,8 +34,7 @@
             title: "Essence Spells",
             desc: "I have discovered a number of patterns relating to $(l:items/essence)$(item)Essence/$, the fundamental components of items.",
             extract_essence: "Extracts the essence from a dropped item. Cost varies depending on target item.",
-            combine_entities: "Takes a list of dropped essence items, and attempts to combine them, pushing the output to the target vector.$(br)Mishaps if essences cannot combine to an item.$(br2)Cost varies depending on produced item.$(br)",
-            combine_jars: {
+            combine_essence: {
               "1": "Remove a list of vectors, a list of numbers, and a vector from the stack, then take essences from the jars at the given locations, mix them according to the given quantitites, and summon the resulting item at the given location.$(br)",
               "2": "More specifically, for each vector in the first list, it will use the number at the corresponding index in the second list to determine how much essence to extract from the jar at that location.$(br)After essence has been extracted from all of the jars, the extracted essence will be combined to create an item at the given location. Mishaps if the given ratio of essences cannot be combined into any valid item.$(br2)Cost varies depending on the produced item.$(br)"
             }
@@ -65,8 +61,7 @@
     action: {
       "hexssence:": {
         "extract_essence": "Extraction",
-        "combine_entities": "Combination (entities)",
-        "combine_jars": "Combination (vecs)"
+        "combine_essence": "Combination"
       },
 
       // use this to add shortened versions of pattern names if the full name won't fit in the ingame book

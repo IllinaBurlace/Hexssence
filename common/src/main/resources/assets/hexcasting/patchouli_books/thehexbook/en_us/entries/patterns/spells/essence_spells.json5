@@ -18,26 +18,15 @@
     },
     {
       type: "hexcasting:pattern",
-      op_id: "hexssence:combine_entities",
-      anchor: "hexssence:combine_entities",
-      input: "[entity], vec",
-      output: "",
-      text: "hexssence.book.patterns.spells.essence_spells.combine_entities"
-    },
-    {
-      type: "patchouli:empty"
-    },
-    {
-      type: "hexcasting:pattern",
-      op_id: "hexssence:combine_jars",
-      anchor: "hexssence:combine_jars",
+      op_id: "hexssence:combine_essence",
+      anchor: "hexssence:combine_essence",
       input: "[vec], [num], vec",
       output: "",
-      text: "hexssence.book.patterns.spells.essence_spells.combine_jars.1"
+      text: "hexssence.book.patterns.spells.essence_spells.combine_essence.1"
     },
     {
       type: "patchouli:text",
-      text: "hexssence.book.patterns.spells.essence_spells.combine_jars.2"
+      text: "hexssence.book.patterns.spells.essence_spells.combine_essence.2"
     }
   ],
 }
