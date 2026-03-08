@@ -23,4 +23,6 @@ dependencies {
         implementation(it)
         annotationProcessor(it)
     }
+
+    modImplementation(libs.moreiotas.common) { isTransitive = false }
 }

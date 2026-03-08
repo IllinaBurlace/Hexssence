@@ -1,0 +1,24 @@
+{
+  "name": "hexssence.entry.items",
+  "category": "hexcasting:items",
+  "icon": "hexssence:essence_hex",
+  "advancement": "hexcasting:root",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "hexssence.page.essence.1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "hexssence.page.essence.2"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "hexssence.page.essence.jar"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hexssence:essence_jar"
+    }
+  ]
+}

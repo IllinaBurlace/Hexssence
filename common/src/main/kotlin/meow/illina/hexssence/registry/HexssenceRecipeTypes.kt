@@ -1,5 +1,6 @@
 package meow.illina.hexssence.registry
 
+import meow.illina.hexssence.recipe.combination.CombinationRecipe
 import meow.illina.hexssence.recipe.extraction.ExtractionRecipe
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.core.registries.Registries
@@ -11,5 +12,8 @@ object HexssenceRecipeTypes : HexssenceRegistrar<RecipeType<*>>(
 ){
     val EXTRACTION = register("essence_extraction") {
         ExtractionRecipe.Type
+    }
+    val COMBINATION = register("essence_combination") {
+        CombinationRecipe.Type
     }
 }

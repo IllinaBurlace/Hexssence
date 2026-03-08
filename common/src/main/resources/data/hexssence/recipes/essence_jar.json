@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": { "item": "minecraft:glass" },
+    "I": { "item": "minecraft:gold_ingot" },
+    "E": { "tag": "hexssence:essence_jar/valid" }
+  },
+  "pattern": [
+    "GIG",
+    "GEG",
+    "GGG"
+  ],
+  "result": {
+    "item": "hexssence:essence_jar"
+  },
+  "show_notification": false
+}

@@ -6,18 +6,16 @@ import at.petrak.hexcasting.api.casting.math.HexDir
 import at.petrak.hexcasting.api.casting.math.HexPattern
 import at.petrak.hexcasting.common.lib.HexRegistries
 import at.petrak.hexcasting.common.lib.hex.HexActions
+import meow.illina.hexssence.casting.actions.spells.CombineVecs
 import meow.illina.hexssence.casting.actions.spells.Extract
-import meow.illina.hexssence.casting.actions.spells.OpCongratulate
 
 object HexssenceActions : HexssenceRegistrar<ActionRegistryEntry>(
     HexRegistries.ACTION,
     { HexActions.REGISTRY },
 ) {
-    val CONGRATULATE = make("congratulate", HexDir.WEST, "eed", OpCongratulate)
+    val EXTRACT = make("extract_essence", HexDir.SOUTH_WEST, "qqqqwaadw", Extract)
 
-    val GREAT_CONGRATULATE = make("congratulate/great", HexDir.EAST, "qwwqqqwwqwded", OpCongratulate)
-
-    val EXTRACT = make("extract_essence", HexDir.EAST, "qaqqaeawaeaeawqwa", Extract)
+    val COMBINE = make("combine_essence", HexDir.SOUTH_EAST, "eeeewddaw", CombineVecs)
 
     private fun make(name: String, startDir: HexDir, signature: String, action: Action) =
         make(name, startDir, signature) { action }

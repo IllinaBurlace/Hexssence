@@ -1,0 +1,11 @@
+{
+  "type": "hexssence:essence_combination",
+  "ingredients": [
+    { "item": "hexssence:essence_hex", "count": 2 },
+    { "item": "hexssence:essence_earth", "count": 1}
+  ],
+  "results": [
+    { "item": "minecraft:amethyst_block", "count": 1}
+  ],
+  "mediaCost": 100000
+}

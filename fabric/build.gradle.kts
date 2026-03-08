@@ -81,4 +81,5 @@ dependencies {
         exclude(group = "net.fabricmc.fabric-api")
     }
     modImplementation(libs.modMenu)
+    modImplementation(libs.moreiotas.fabric) { isTransitive = false }
 }
