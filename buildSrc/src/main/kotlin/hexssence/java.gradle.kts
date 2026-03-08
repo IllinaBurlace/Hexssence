@@ -25,7 +25,7 @@ if (!release) {
 
 repositories {
     mavenCentral()
-    maven { url = uri("https://jitpack.io") }
+    // maven { url = uri("https://jitpack.io") }
     maven { url = uri("https://maven.blamejared.com") }
     maven { url = uri("https://maven.fabricmc.net/") }
     maven { url = uri("https://maven.hexxy.media") }

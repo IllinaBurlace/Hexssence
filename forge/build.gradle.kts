@@ -86,6 +86,8 @@ dependencies {
         localRuntime(it)
         include(it)
     }
+
+    modImplementation(libs.moreiotas.forge) { isTransitive = false }
 }
 
 tasks {
