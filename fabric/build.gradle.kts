@@ -81,5 +81,8 @@ dependencies {
         exclude(group = "net.fabricmc.fabric-api")
     }
     modImplementation(libs.modMenu)
-    modImplementation(libs.moreiotas.fabric) { isTransitive = false }
+    modImplementation(libs.moreiotas.fabric) {
+        exclude(group = "moreiotas", module = "serialization-hooks")
+        exclude(group = "dev.emi")
+    }
 }

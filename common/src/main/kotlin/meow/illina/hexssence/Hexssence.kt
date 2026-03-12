@@ -9,6 +9,7 @@ import meow.illina.hexssence.registry.HexssenceActions
 import meow.illina.hexssence.registry.HexssenceBlockEntities
 import meow.illina.hexssence.registry.HexssenceBlocks
 import meow.illina.hexssence.registry.HexssenceCreativeTabs
+import meow.illina.hexssence.registry.HexssenceIotas
 import meow.illina.hexssence.registry.HexssenceItems
 import meow.illina.hexssence.registry.HexssenceRecipeSerializers
 import meow.illina.hexssence.registry.HexssenceRecipeTypes
@@ -32,6 +33,7 @@ object Hexssence {
             HexssenceCreativeTabs,
             HexssenceRecipeTypes,
             HexssenceRecipeSerializers,
+            HexssenceIotas,
         )
         HexssenceNetworking.init()
     }
