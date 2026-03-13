@@ -18,7 +18,6 @@ import net.minecraft.network.chat.Component
 import net.minecraft.world.Containers
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.Items
-import net.minecraft.world.level.block.Block
 import net.minecraft.world.phys.Vec3
 import kotlin.math.floor
 
@@ -69,13 +68,16 @@ object Combine : SpellAction{
         val outPos: Vec3,
     ) : RenderedSpell {
         override fun cast(env: CastingEnvironment) {
-            jars.forEachIndexed {index, jar ->
-                jar.count -= recipe.params.ingredients[index].count
-                // will literally never be less because above check would fail otherwise
-                if (jar.count == 0) jar.storedItem = Items.AIR
-                jar.setChanged()
-                env.world.sendBlockUpdated(jar.blockPos, jar.blockState, jar.blockState, Block.UPDATE_ALL)
+            jars.forEach {
+                val count = recipe.params.ingredients.find { ing ->
+                    ing.test(ItemStack(it.storedItem))
+                }?.count ?: 1 // will LITERALLY NEVER be null but this feels safer than asserting that it isn't. but, if it is something is VERY wrong.
+                it.count -= count
+                if (it.count == 0)
+                    it.storedItem = Items.AIR
+                it.setChanged()
             }
+
             recipe.rollResults(1).forEach { res ->
                 Containers.dropItemStack(
                     env.world,
