@@ -17,7 +17,6 @@ import net.minecraft.core.NonNullList
 import net.minecraft.network.chat.Component
 import net.minecraft.world.Containers
 import net.minecraft.world.item.ItemStack
-import net.minecraft.world.item.Items
 import net.minecraft.world.phys.Vec3
 import kotlin.math.floor
 
@@ -30,30 +29,33 @@ object Combine : SpellAction{
         val outPos = args.getVec3(2, argc)
 
         val badList = MishapInvalidIota(args[0], 2, Component.translatable("hexssence.mishaps.combine.valid_list"))
-        val jars = NonNullList.create<EssenceJarBlockEntity>()
-        jars.addAll(vecList.mapNotNull {
-            if (it !is Vec3Iota)
+
+        val jars = NonNullList.create<Pair<EssenceJarBlockEntity, Int>>()
+        vecList.forEach { iota ->
+            if (iota !is Vec3Iota)
                 throw badList
-            env.assertVecInRange(it.vec3)
+            val vec = iota.vec3
+            env.assertVecInRange(vec)
 
             val pos = BlockPos(
-                floor(it.vec3.x).toInt(),
-                floor(it.vec3.y).toInt(),
-                floor(it.vec3.z).toInt(),
+                floor(vec.x).toInt(),
+                floor(vec.y).toInt(),
+                floor(vec.z).toInt(),
             )
             val bE = env.world.getBlockEntity(pos)
             bE as? EssenceJarBlockEntity
                 ?: throw badList
 
-            val item = recipe.params.ingredients.find { ing ->
-                ing.test(ItemStack(bE.storedItem))
-            } ?: return@mapNotNull null
-
-            if (bE.count >= item.count)
-                return@mapNotNull bE
-            else
+            var idx = -1
+            recipe.params.ingredients.forEachIndexed { index, counted ->
+                if (counted.testWithCount(ItemStack(bE.storedItem, bE.count)))
+                    idx = index
+            }
+            if (idx == -1)
                 throw badList
-        })
+
+            jars.add(Pair(bE, idx))
+        }
 
         return SpellAction.Result(
             Spell(jars, recipe, outPos),
@@ -63,19 +65,13 @@ object Combine : SpellAction{
 
     }
     private data class Spell(
-        val jars: NonNullList<EssenceJarBlockEntity>,
+        val jars: NonNullList<Pair<EssenceJarBlockEntity, Int>>,
         val recipe: CombinationRecipe,
         val outPos: Vec3,
     ) : RenderedSpell {
         override fun cast(env: CastingEnvironment) {
-            jars.forEach {
-                val count = recipe.params.ingredients.find { ing ->
-                    ing.test(ItemStack(it.storedItem))
-                }?.count ?: 1 // will LITERALLY NEVER be null but this feels safer than asserting that it isn't. but, if it is something is VERY wrong.
-                it.count -= count
-                if (it.count == 0)
-                    it.storedItem = Items.AIR
-                it.setChanged()
+            jars.forEach { pair ->
+                pair.first.count -= recipe.params.ingredients[pair.second].count
             }
 
             recipe.rollResults(1).forEach { res ->
