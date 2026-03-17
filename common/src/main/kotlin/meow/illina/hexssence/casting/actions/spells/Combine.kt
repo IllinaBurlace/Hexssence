@@ -27,7 +27,7 @@ object Combine : SpellAction{
     override fun execute(args: List<Iota>, env: CastingEnvironment): SpellAction.Result {
         val vecList = args.getList(0, argc)
         val recipe = args.getRecipe(1, argc, env.world) as? CombinationRecipe
-            ?: throw MishapInvalidIota(args[0], 2, Component.translatable("hexssence.mishaps.combine.valid_recipe"))
+            ?: throw MishapInvalidIota(args[1], 1, Component.translatable("hexssence.mishaps.combine.valid_recipe"))
         val outPos = args.getVec3(2, argc)
 
         val badList = MishapInvalidIota(args[0], 2, Component.translatable("hexssence.mishaps.combine.valid_list"))
@@ -69,7 +69,7 @@ object Combine : SpellAction{
         }
         input.forEach { pair ->
             if (pair.first.count < pair.second.count) {
-                throw badList
+                throw MishapInvalidIota(args[0], 2, Component.translatable("hexssence.mishaps.combine.not_enough_items"))
             }
         }
 

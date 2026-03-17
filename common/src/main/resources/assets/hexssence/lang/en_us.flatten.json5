@@ -22,11 +22,13 @@
       extraction: {
         valid_target: "valid Extraction target"
       },
-      combine_vecs: {
+      combine: {
+        valid_recipe: "valid Combination recipe iota",
         valid_list: "list of vectors pointing to Essence jars",
+        not_enough_items: "Essence jars to contain enough requisite Essence"
       },
       analyze: {
-        valid_item: "item with a valid combination recipe"
+        valid_item: "item with a valid Combination recipe"
       }
     },
     book: {
