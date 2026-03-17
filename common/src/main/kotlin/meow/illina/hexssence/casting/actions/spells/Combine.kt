@@ -115,8 +115,10 @@ object Combine : SpellAction{
             return ing
         if (used.contains(test))
             return ing
-        if (test.test(ItemStack(jar.storedItem)))
+        if (test.test(ItemStack(jar.storedItem))) {
+            used.add(test)
             return test
+        }
         return ing
     }
 }
