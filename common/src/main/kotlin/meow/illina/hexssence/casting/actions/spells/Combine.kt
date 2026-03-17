@@ -18,6 +18,7 @@ import net.minecraft.core.NonNullList
 import net.minecraft.network.chat.Component
 import net.minecraft.world.Containers
 import net.minecraft.world.item.ItemStack
+import net.minecraft.world.level.block.Block
 import net.minecraft.world.phys.Vec3
 import kotlin.math.floor
 
@@ -55,15 +56,12 @@ object Combine : SpellAction{
         jars.forEach { jar ->
             var ing = IngredientCounted.EMPTY
             recipe.params.ingredients.forEach { ingredient ->
-                if (ingredient.ingredient.items.size == 1)
-                    ing = pass(ing, ingredient, used, jar)
+                ing = pass(ing, ingredient, jar, used)
             }
-            recipe.params.ingredients.forEach { ingredient ->
-                if (ingredient.ingredient.items.size != 1)
-                    ing = pass(ing, ingredient, used, jar)
-            }
-            if (ing != IngredientCounted.EMPTY)
+            if (ing != IngredientCounted.EMPTY) {
+                used.add(ing)
                 input.add(Pair(jar, ing))
+            }
         }
 
         if (input.size != recipe.params.ingredients.size) {
@@ -89,8 +87,13 @@ object Combine : SpellAction{
     ) : RenderedSpell {
         override fun cast(env: CastingEnvironment) {
             jars.forEach { pair ->
-                pair.first.count -= pair.second.count
-                pair.first.setChanged()
+                pair.first.extract(pair.second.count)
+                env.world.sendBlockUpdated(
+                    pair.first.blockPos,
+                    pair.first.blockState,
+                    pair.first.blockState,
+                    Block.UPDATE_ALL
+                )
             }
 
             recipe.rollResults(1).forEach { res ->
@@ -108,17 +111,15 @@ object Combine : SpellAction{
     fun pass(
         ing: IngredientCounted,
         test: IngredientCounted,
-        used: NonNullList<IngredientCounted>,
-        jar: EssenceJarBlockEntity
+        jar: EssenceJarBlockEntity,
+        used: NonNullList<IngredientCounted>
     ) : IngredientCounted {
         if (ing != IngredientCounted.EMPTY)
             return ing
         if (used.contains(test))
             return ing
-        if (test.test(ItemStack(jar.storedItem))) {
-            used.add(test)
+        if (test.test(ItemStack(jar.storedItem)))
             return test
-        }
         return ing
     }
 }
