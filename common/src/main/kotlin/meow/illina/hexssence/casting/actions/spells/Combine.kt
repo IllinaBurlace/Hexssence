@@ -12,6 +12,7 @@ import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota
 import meow.illina.hexssence.blocks.jar.EssenceJarBlockEntity
 import meow.illina.hexssence.casting.iota.getRecipe
 import meow.illina.hexssence.recipe.combination.CombinationRecipe
+import meow.illina.hexssence.recipe.utils.IngredientCounted
 import net.minecraft.core.BlockPos
 import net.minecraft.core.NonNullList
 import net.minecraft.network.chat.Component
@@ -30,7 +31,7 @@ object Combine : SpellAction{
 
         val badList = MishapInvalidIota(args[0], 2, Component.translatable("hexssence.mishaps.combine.valid_list"))
 
-        val jars = NonNullList.create<Pair<EssenceJarBlockEntity, Int>>()
+        val jars = NonNullList.create<EssenceJarBlockEntity>()
         vecList.forEach { iota ->
             if (iota !is Vec3Iota)
                 throw badList
@@ -45,33 +46,51 @@ object Combine : SpellAction{
             val bE = env.world.getBlockEntity(pos)
             bE as? EssenceJarBlockEntity
                 ?: throw badList
+            jars.add(bE)
+        }
 
-            var idx = -1
-            recipe.params.ingredients.forEachIndexed { index, counted ->
-                if (counted.testWithCount(ItemStack(bE.storedItem, bE.count)))
-                    idx = index
+        val input = NonNullList.create<Pair<EssenceJarBlockEntity, IngredientCounted>>()
+        val used = NonNullList.create<IngredientCounted>()
+
+        jars.forEach { jar ->
+            var ing = IngredientCounted.EMPTY
+            recipe.params.ingredients.forEach { ingredient ->
+                if (ingredient.ingredient.items.size == 1)
+                    ing = pass(ing, ingredient, used, jar)
             }
-            if (idx == -1)
-                throw badList
+            recipe.params.ingredients.forEach { ingredient ->
+                if (ingredient.ingredient.items.size != 1)
+                    ing = pass(ing, ingredient, used, jar)
+            }
+            if (ing != IngredientCounted.EMPTY)
+                input.add(Pair(jar, ing))
+        }
 
-            jars.add(Pair(bE, idx))
+        if (input.size != recipe.params.ingredients.size) {
+            throw badList
+        }
+        input.forEach { pair ->
+            if (pair.first.count < pair.second.count) {
+                throw badList
+            }
         }
 
         return SpellAction.Result(
-            Spell(jars, recipe, outPos),
+            Spell(input, recipe, outPos),
             recipe.params.mediaCost,
             listOf(ParticleSpray.cloud(outPos, 1.0)),
         )
 
     }
     private data class Spell(
-        val jars: NonNullList<Pair<EssenceJarBlockEntity, Int>>,
+        val jars: NonNullList<Pair<EssenceJarBlockEntity, IngredientCounted>>,
         val recipe: CombinationRecipe,
         val outPos: Vec3,
     ) : RenderedSpell {
         override fun cast(env: CastingEnvironment) {
             jars.forEach { pair ->
-                pair.first.count -= recipe.params.ingredients[pair.second].count
+                pair.first.count -= pair.second.count
+                pair.first.setChanged()
             }
 
             recipe.rollResults(1).forEach { res ->
@@ -84,5 +103,20 @@ object Combine : SpellAction{
                 )
             }
         }
+    }
+
+    fun pass(
+        ing: IngredientCounted,
+        test: IngredientCounted,
+        used: NonNullList<IngredientCounted>,
+        jar: EssenceJarBlockEntity
+    ) : IngredientCounted {
+        if (ing != IngredientCounted.EMPTY)
+            return ing
+        if (used.contains(test))
+            return ing
+        if (test.test(ItemStack(jar.storedItem)))
+            return test
+        return ing
     }
 }

@@ -38,5 +38,7 @@ class IngredientCounted(val ingredient: Ingredient, val count: Int) {
             ingredient.ingredient.toNetwork(buf)
             buf.writeInt(ingredient.count)
         }
+
+        val EMPTY = IngredientCounted(Ingredient.EMPTY, 0)
     }
 }
