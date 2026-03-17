@@ -1,9 +1,9 @@
 {
   "type": "hexssence:essence_extraction",
   "ingredients": [
-    { "item": "minecraft:amethyst_block", "count": 4 }
+    { "item": "minecraft:amethyst_block", "count": 1 }
   ],
   "results": [
-    { "item": "hexssence:essence_hex", "count": 1 }
+    { "item": "hexssence:essence_hex", "count": 2 }
   ]
 }

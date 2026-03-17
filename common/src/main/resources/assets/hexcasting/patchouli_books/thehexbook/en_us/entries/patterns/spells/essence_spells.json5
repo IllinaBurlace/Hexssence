@@ -24,5 +24,13 @@
       output: "",
       text: "hexssence.book.patterns.spells.essence_spells.combine_essence"
     },
+    {
+      type: "hexcasting:pattern",
+      op_id: "hexssence:decay_recipe",
+      anchor: "hexssence:decay_recipe",
+      input: "recipe",
+      output: "[[itemtype, num]]",
+      text: "hexssence.book.patterns.spells.essence_spells.decay_recipe"
+    }
   ],
 }
