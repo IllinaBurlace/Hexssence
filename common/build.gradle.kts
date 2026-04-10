@@ -24,5 +24,8 @@ dependencies {
         annotationProcessor(it)
     }
 
-    modImplementation(libs.moreiotas.common) { isTransitive = false }
+    modImplementation(libs.moreiotas.common) {
+        exclude(group = "moreiotas", module = "serialization-hooks")
+        exclude(group = "dev.emi")
+    }
 }

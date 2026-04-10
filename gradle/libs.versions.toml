@@ -103,7 +103,7 @@ caelus = { module="top.theillusivec4.caelus:caelus-forge", version.ref="caelus" 
 
 moreiotas-common = { module="ram.talia.moreiotas:moreiotas-fabric-1.20.1", version.ref="moreiotas" }
 moreiotas-fabric = { module="ram.talia.moreiotas:moreiotas-fabric-1.20.1", version.ref="moreiotas" }
-moreiotas-forge = { module="ram.talia.moreiotas:moreiotas-forge-1.20.1", version.ref="moreiotas" }
+moreiotas-forge  = { module="ram.talia.moreiotas:moreiotas-forge-1.20.1", version.ref="moreiotas" }
 
 inline-fabric = { module="com.samsthenerd.inline:inline-fabric", version.ref="inline" }
 inline-forge  = { module="com.samsthenerd.inline:inline-forge", version.ref="inline" }

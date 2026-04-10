@@ -87,7 +87,11 @@ dependencies {
         include(it)
     }
 
-    modImplementation(libs.moreiotas.forge) { isTransitive = false }
+    modImplementation(libs.moreiotas.forge) {
+        isTransitive = false
+        exclude(group = "moreiotas", module = "serialization-hooks")
+        exclude(group = "dev.emi")
+    }
 }
 
 tasks {

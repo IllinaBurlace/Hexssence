@@ -1,0 +1,20 @@
+{
+  name: "hexssence.book.patterns.great_spells.analysis.title",
+  category: "hexcasting:patterns/great_spells",
+  icon: "hexssence:essence_hex",
+  advancement: "hexcasting:root",
+  pages: [
+    {
+      type: "patchouli:text",
+      text: "hexssence.book.patterns.great_spells.analysis.overview"
+    },
+    {
+      type: "hexcasting:pattern",
+      op_id: "hexssence:analyze_essence",
+      anchor: "hexssence:analyze_essence",
+      input: "entity",
+      output: "recipe",
+      text: "hexssence.book.patterns.great_spells.analysis.analysis"
+    }
+  ]
+}
