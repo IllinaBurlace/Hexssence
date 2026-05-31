@@ -44,6 +44,7 @@ hexssenceModDependencies {
     requires(curseforge = "hexcasting", modrinth = "hex-casting")
     requires("fabric-api")
     requires("fabric-language-kotlin")
+    requires("moreiotas")
     optional("modmenu")
 }
 

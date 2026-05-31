@@ -58,6 +58,7 @@ hexssenceModDependencies {
     requires("cloth-config")
     requires(curseforge = "hexcasting", modrinth = "hex-casting")
     requires("kotlin-for-forge")
+    requires("moreiotas")
 }
 
 dependencies {
