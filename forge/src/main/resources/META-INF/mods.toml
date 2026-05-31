@@ -44,3 +44,10 @@ mandatory = true
 versionRange = "[${versions.hexcasting},)"
 ordering = "NONE"
 side = "BOTH"
+
+[[dependencies.hexssence]]
+modId = "moreiotas"
+mandatory = true
+versionRange = "[${versions.moreiotas},)"
+ordering = "NONE"
+side = "BOTH"

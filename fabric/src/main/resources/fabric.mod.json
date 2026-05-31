@@ -11,7 +11,7 @@
     "homepage": "https://illinaburlace.github.io/Hexssence",
     "sources": "https://github.com/IllinaBurlace/Hexssence"
   },
-  "license": "MIT",
+  "license": "UNLICENSE",
   "icon": "assets/hexssence/icon.png",
   "environment": "*",
   "entrypoints": {
@@ -47,7 +47,8 @@
     "fabric-language-kotlin": ">=${versions.kotlin_fabric}",
     "architectury": ">=${versions.architectury}",
     "hexcasting": ">=${versions.hexcasting}",
-    "cloth-config": ">=${versions.clothConfig}"
+    "cloth-config": ">=${versions.clothConfig}",
+    "moreiotas": ">=${versions.moreiotas}"
   },
   "suggests": {
     "modmenu": ">=${versions.modMenu}"
